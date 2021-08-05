@@ -3,27 +3,26 @@ package one.digitalinovation.personapi.controller;
 
 import one.digitalinovation.personapi.dto.MessageResponseDTO;
 import one.digitalinovation.personapi.entity.Person;
-import one.digitalinovation.personapi.repository.PersonRepository;
+import one.digitalinovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/people")
 public class PersonController {
 
-    private PersonRepository personRepository;
+    private PersonService personService;
 
     @Autowired
-    public PersonController(PersonRepository personRepository){
-        this.personRepository = personRepository;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
     }
 
     @PostMapping
-    public MessageResponseDTO createPerson(@RequestBody Person person){
-        Person savedPerdon = personRepository.save(person);
-        return MessageResponseDTO.builder()
-                                .message("Created Person with ID: " + savedPerdon.getId())
-                                .build();
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO createPerson(@RequestBody Person person) {
+        return personService.createPerson(person);
     }
 
 }
