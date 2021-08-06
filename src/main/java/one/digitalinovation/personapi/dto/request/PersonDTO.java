@@ -1,37 +1,38 @@
-package one.digitalinovation.personapi.entity;
-
+package one.digitalinovation.personapi.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import one.digitalinovation.personapi.entity.Phone;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class PersonDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 100)
     private String firstname;
 
-    @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 100)
     private String lastname;
 
-    @Column(nullable = false, unique = true)
+    @NotEmpty
+    @CPF
     private String cpf;
 
     private LocalDate birthDate;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @Valid
+    @NotEmpty
     private List<Phone> phones;
+
 }
