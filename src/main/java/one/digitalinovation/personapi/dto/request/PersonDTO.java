@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import one.digitalinovation.personapi.entity.Phone;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +30,6 @@ public class PersonDTO {
     private String lastname;
 
     @NotEmpty
-    @CPF
     private String cpf;
 
     private LocalDate birthDate;
