@@ -1,7 +1,6 @@
-package one.digitalinovation.personapi.entity;
+package one.digitalinovation.personapi.entities;
 
 
-import com.sun.istack.Nullable;
 import lombok.*;
 import one.digitalinovation.personapi.enums.PhoneType;
 

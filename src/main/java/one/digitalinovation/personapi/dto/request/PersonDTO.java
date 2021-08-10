@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import one.digitalinovation.personapi.entity.Phone;
+import one.digitalinovation.personapi.entities.Phone;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
