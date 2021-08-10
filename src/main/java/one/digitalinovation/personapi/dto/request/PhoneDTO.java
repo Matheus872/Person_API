@@ -8,6 +8,8 @@ import one.digitalinovation.personapi.enums.PhoneType;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Data
 @Builder
